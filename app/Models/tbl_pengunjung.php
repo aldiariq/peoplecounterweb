@@ -15,12 +15,9 @@ class tbl_pengunjung extends Model
      * @var array
      */
     protected $fillable = [
-        'no_kamera',
-        'nama_kamera',
-        'channel_kamera',
-        'tanggal_buat',
-        'tanggal_update',
-        'id_user'
+        'id_kamera',
+        'tanggal',
+        'status'
     ];
 
     /**

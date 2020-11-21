@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\tbl_pengaturangaris;
 
-class Pengaturangaris extends Controller
+class PengaturangarisController extends Controller
 {
     public function index_view ()
     {

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\tbl_setting;
 
-class Setting extends Controller
+class SettingController extends Controller
 {
     public function index_view ()
     {

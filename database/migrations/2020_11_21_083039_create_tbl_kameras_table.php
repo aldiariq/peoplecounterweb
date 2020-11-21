@@ -16,7 +16,7 @@ class CreateTblKamerasTable extends Migration
     public function up()
     {
         Schema::create('tbl_kameras', function (Blueprint $table) {
-            $table->increments('no_kamera');
+            $table->increments('id');
             $table->string('nama_kamera');
             $table->string('channel_kamera');
             $table->dateTime('tanggal_buat');

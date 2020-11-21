@@ -14,8 +14,8 @@ class CreateTblPengunjungsTable extends Migration
     public function up()
     {
         Schema::create('tbl_pengunjungs', function (Blueprint $table) {
-            $table->increments('no');
-            $table->integer('no_kamera');
+            $table->increments('id');
+            $table->integer('id_kamera');
             $table->dateTime('tanggal');
             $table->integer('status'); 
         });

@@ -14,8 +14,8 @@ class CreateTblPengaturangarisTable extends Migration
     public function up()
     {
         Schema::create('tbl_pengaturangaris', function (Blueprint $table) {
-            $table->increments('no');
-            $table->integer('no_kamera');
+            $table->increments('id');
+            $table->integer('id_kamera');
             $table->integer('x1g1');
             $table->integer('y1g1');
             $table->integer('x2g1');

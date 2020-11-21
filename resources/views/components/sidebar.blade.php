@@ -10,8 +10,8 @@ $links = [
             [
                 "section_text" => "Kelola Kamera",
                 "section_list" => [
-                    ["href" => "user", "text" => "Data Kamera"],
-                    ["href" => "user.new", "text" => "Tambah Kamera"]
+                    ["href" => "kamera", "text" => "Data Kamera"],
+                    ["href" => "kamera.new", "text" => "Tambah Kamera"]
                 ]
             ]
         ],
@@ -19,7 +19,7 @@ $links = [
         "is_multi" => true,
     ],
     [
-        "href" => "dashboard",
+        "href" => "pengaturangaris",
         "text" => "Pengaturan Garis",
         "is_multi" => false,
     ],
@@ -37,7 +37,7 @@ $links = [
         "is_multi" => true,
     ],
     [
-        "href" => "dashboard",
+        "href" => "setting",
         "text" => "Setting",
         "is_multi" => false,
     ],
@@ -58,7 +58,7 @@ $navigation_links = array_to_object($links);
         @foreach ($navigation_links as $link)
         <ul class="sidebar-menu">
             <li class="menu-header">{{ $link->text }}</li>
-            @if (!$link->is_multi)
+            @if ($link->text == "Dashboard")
             <li class="{{ Request::routeIs($link->href) ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route($link->href) }}"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
@@ -84,10 +84,10 @@ $navigation_links = array_to_object($links);
                 @endforeach
             @endif
 
-            @if ($link->text == "Setting")
-            @endif
-
-            @if ($link->text == "Kelola Pengaturan Garis")
+            @if ($link->text == "Pengaturan Garis")
+            <li class="{{ Request::routeIs($link->href) ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route($link->href) }}"><i class="fas fa-grip-lines-vertical"></i><span>Pengaturan Garis</span></a>
+            </li>
             @endif
 
             @if ($link->text == "Kelola User")
@@ -108,6 +108,12 @@ $navigation_links = array_to_object($links);
                         </ul>
                     </li>
                 @endforeach
+            @endif
+
+            @if ($link->text == "Setting")
+            <li class="{{ Request::routeIs($link->href) ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route($link->href) }}"><i class="fas fa-cog"></i><span>Setting</span></a>
+            </li>
             @endif
         </ul>
         @endforeach

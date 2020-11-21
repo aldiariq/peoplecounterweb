@@ -16,10 +16,16 @@ class tbl_pengaturangaris extends Model
      */
     protected $fillable = [
         'no_kamera',
-        'nama_kamera',
-        'channel_kamera',
-        'tanggal_buat',
-        'tanggal_update',
+        'id_kamera',
+        'x1g1',
+        'y1g1',
+        'x2g1',
+        'y2g1',
+        'x1g2',
+        'y1g2',
+        'x2g2',
+        'y2g2',
+        'tanggal',
         'id_user'
     ];
 
