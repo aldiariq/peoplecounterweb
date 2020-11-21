@@ -71,6 +71,25 @@ class Main extends Component
                     ];
                     break;
 
+                    case 'setting':
+                        $settings = $this->model::search($this->search)
+                            ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+                            ->paginate($this->perPage);
+        
+                        return [
+                            "view" => 'livewire.table.setting',
+                            "settings" => $settings,
+                            "data" => array_to_object([
+                                'href' => [
+                                    'create_new' => route('setting.new'),
+                                    'create_new_text' => 'Tambah Setting (DVR) Baru',
+                                    'export' => '#',
+                                    'export_text' => 'Export'
+                                ]
+                            ])
+                        ];
+                        break;
+
             default:
                 # code...
                 break;

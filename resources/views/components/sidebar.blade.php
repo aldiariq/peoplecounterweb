@@ -37,9 +37,17 @@ $links = [
         "is_multi" => true,
     ],
     [
-        "href" => "setting",
-        "text" => "Setting",
-        "is_multi" => false,
+        "href" => [
+            [
+                "section_text" => "Kelola Setting (DVR)",
+                "section_list" => [
+                    ["href" => "setting", "text" => "Data Setting (DVR)"],
+                    ["href" => "setting.new", "text" => "Tambah Setting (DVR)"]
+                ]
+            ]
+        ],
+        "text" => "Kelola Setting (DVR)",
+        "is_multi" => true,
     ],
 ];
 $navigation_links = array_to_object($links);
@@ -110,10 +118,24 @@ $navigation_links = array_to_object($links);
                 @endforeach
             @endif
 
-            @if ($link->text == "Setting")
-            <li class="{{ Request::routeIs($link->href) ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route($link->href) }}"><i class="fas fa-cog"></i><span>Setting</span></a>
-            </li>
+            @if ($link->text == "Kelola Setting (DVR)")
+                @foreach ($link->href as $section)
+                    @php
+                    $routes = collect($section->section_list)->map(function ($child) {
+                        return Request::routeIs($child->href);
+                    })->toArray();
+
+                    $is_active = in_array(true, $routes);
+                    @endphp
+                    <li class="dropdown {{ ($is_active) ? 'active' : '' }}">
+                        <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cog"></i> <span>{{ $section->section_text }}</span></a>
+                        <ul class="dropdown-menu">
+                            @foreach ($section->section_list as $child)
+                                <li class="{{ Request::routeIs($child->href) ? 'active' : '' }}"><a class="nav-link" href="{{ route($child->href) }}">{{ $child->text }}</a></li>
+                            @endforeach
+                        </ul>
+                    </li>
+                @endforeach
             @endif
         </ul>
         @endforeach

@@ -19,8 +19,8 @@ class CreateTblSettingsTable extends Migration
             $table->string('user_dvr');
             $table->string('pass_dvr');
             $table->bigInteger('id_user')->unsigned();
-            $table->dateTime('tanggal_buat');
-            $table->dateTime('tanggal_update');
+            $table->dateTime('created_at');
+            $table->dateTime('updated_at');
         });
     }
 

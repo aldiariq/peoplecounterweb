@@ -24,7 +24,8 @@ class CreateTblPengaturangarisTable extends Migration
             $table->integer('y1g2');
             $table->integer('x2g2');
             $table->integer('y2g2');
-            $table->dateTime('tanggal');
+            $table->dateTime('created_at');
+            $table->dateTime('updated_at');
             $table->bigInteger('id_user')->unsigned();
         });
     }

@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Models\tbl_kamera;
-use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 

@@ -15,7 +15,6 @@ class tbl_pengaturangaris extends Model
      * @var array
      */
     protected $fillable = [
-        'no_kamera',
         'id_kamera',
         'x1g1',
         'y1g1',
@@ -25,7 +24,8 @@ class tbl_pengaturangaris extends Model
         'y1g2',
         'x2g2',
         'y2g2',
-        'tanggal',
+        'created_at',
+        'updated_at',
         'id_user'
     ];
 
@@ -35,7 +35,8 @@ class tbl_pengaturangaris extends Model
      * @var array
      */
     protected $casts = [
-        'tanggal' => 'datetime',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
     ];
 
     /**

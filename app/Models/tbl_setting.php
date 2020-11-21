@@ -19,8 +19,8 @@ class tbl_setting extends Model
         'user_dvr',
         'pass_dvr',
         'id_user',
-        'tanggal_buat',
-        'tanggal_update'
+        'created_at',
+        'updated_at'
     ];
 
     /**
@@ -29,8 +29,8 @@ class tbl_setting extends Model
      * @var array
      */
     protected $casts = [
-        'tanggal_buat' => 'datetime',
-        'tanggal_update' => 'datetime'
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime'
     ];
 
     /**

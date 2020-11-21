@@ -16,7 +16,8 @@ class tbl_pengunjung extends Model
      */
     protected $fillable = [
         'id_kamera',
-        'tanggal',
+        'created_at',
+        'updated_at',
         'status'
     ];
 
@@ -26,7 +27,8 @@ class tbl_pengunjung extends Model
      * @var array
      */
     protected $casts = [
-        'tanggal' => 'datetime',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
     ];
 
     /**
