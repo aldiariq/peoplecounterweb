@@ -19,8 +19,8 @@ class CreateTblKamerasTable extends Migration
             $table->increments('id');
             $table->string('nama_kamera');
             $table->string('channel_kamera');
-            $table->dateTime('tanggal_buat');
-            $table->dateTime('tanggal_update');
+            $table->dateTime('created_at');
+            $table->dateTime('updated_at');
             $table->bigInteger('id_user')->unsigned();
         });
     }

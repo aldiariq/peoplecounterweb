@@ -17,8 +17,8 @@ class tbl_kamera extends Model
     protected $fillable = [
         'nama_kamera',
         'channel_kamera',
-        'tanggal_buat',
-        'tanggal_update',
+        'created_at',
+        'updated_at',
         'id_user'
     ];
 
@@ -38,7 +38,7 @@ class tbl_kamera extends Model
     public static function search($query)
     {
         return empty($query) ? static::query()
-            : static::where('no_kamera', 'like', '%'.$query.'%')
-                ->orWhere('nama_kamera', 'like', '%'.$query.'%');
+            : static::where('nama_kamera', 'like', '%'.$query.'%')
+                ->orWhere('channel_kamera', 'like', '%'.$query.'%');
     }
 }

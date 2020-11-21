@@ -44,13 +44,32 @@ class Main extends Component
                     "data" => array_to_object([
                         'href' => [
                             'create_new' => route('user.new'),
-                            'create_new_text' => 'Buat User Baru',
+                            'create_new_text' => 'Tambah User Baru',
                             'export' => '#',
                             'export_text' => 'Export'
                         ]
                     ])
                 ];
                 break;
+
+                case 'kamera':
+                    $kameras = $this->model::search($this->search)
+                        ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+                        ->paginate($this->perPage);
+    
+                    return [
+                        "view" => 'livewire.table.kamera',
+                        "kameras" => $kameras,
+                        "data" => array_to_object([
+                            'href' => [
+                                'create_new' => route('kamera.new'),
+                                'create_new_text' => 'Tambah Kamera Baru',
+                                'export' => '#',
+                                'export_text' => 'Export'
+                            ]
+                        ])
+                    ];
+                    break;
 
             default:
                 # code...

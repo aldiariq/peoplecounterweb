@@ -30,7 +30,7 @@ Route::group([ "middleware" => ['auth:sanctum', 'verified'] ], function() {
 
     Route::get('/kamera', [ KameraController::class, "index_view" ])->name("kamera");
     Route::view('/kamera/new', "pages.kamera.kamera-new")->name('kamera.new');
-    Route::view('/kamera/edit/{noKamera}', "pages.kamera.kamera-edit")->name('kamera.edit');
+    Route::view('/kamera/edit/{kameraId}', "pages.kamera.kamera-edit")->name('kamera.edit');
 
     Route::get('/pengaturangaris', [ PengaturangarisController::class, "index_view" ])->name("pengaturangaris");
     Route::view('/pengaturangaris/new', "pages.pengaturangaris.pengaturangaris-new")->name('pengaturangaris.new');

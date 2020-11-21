@@ -9,7 +9,7 @@ class KameraController extends Controller
     public function index_view ()
     {
         return view('pages.kamera.kamera-data', [
-            'users' => tbl_kamera::class
+            'kamera' => tbl_kamera::class
         ]);
     }
 }
