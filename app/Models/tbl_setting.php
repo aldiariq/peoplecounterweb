@@ -8,4 +8,37 @@ use Illuminate\Database\Eloquent\Model;
 class tbl_setting extends Model
 {
     use HasFactory;
+
+        /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'ip_dvr',
+        'user_dvr',
+        'pass_dvr',
+        'id_user',
+        'tanggal_buat',
+        'tanggal_update'
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'tanggal_buat' => 'datetime',
+        'tanggal_update' => 'datetime'
+    ];
+
+    /**
+     * Search query in multiple whereOr
+     */
+    public static function search($query)
+    {
+        return empty($query) ? static::query()
+            : static::where('user_dvr', 'like', '%'.$query.'%');
+    }
 }

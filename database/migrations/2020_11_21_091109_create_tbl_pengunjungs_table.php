@@ -17,7 +17,7 @@ class CreateTblPengunjungsTable extends Migration
             $table->increments('no');
             $table->integer('no_kamera');
             $table->dateTime('tanggal');
-            $table->integer('status');
+            $table->integer('status'); 
         });
     }
 
