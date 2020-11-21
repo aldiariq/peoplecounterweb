@@ -14,6 +14,7 @@ class CreateTblSettingsTable extends Migration
     public function up()
     {
         Schema::create('tbl_settings', function (Blueprint $table) {
+            $table->increments('no');
             $table->string('ip_dvr');
             $table->string('user_dvr');
             $table->string('pass_dvr');
