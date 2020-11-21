@@ -34,7 +34,7 @@ Route::group([ "middleware" => ['auth:sanctum', 'verified'] ], function() {
 
     Route::get('/pengaturangaris', [ PengaturangarisController::class, "index_view" ])->name("pengaturangaris");
     Route::view('/pengaturangaris/new', "pages.pengaturangaris.pengaturangaris-new")->name('pengaturangaris.new');
-    Route::view('/pengaturangaris/edit/{no}', "pages.pengaturangaris.pengaturangaris-edit")->name('pengaturangaris.edit');
+    Route::view('/pengaturangaris/edit/{pengaturangarisId}', "pages.pengaturangaris.pengaturangaris-edit")->name('pengaturangaris.edit');
 
     Route::get('/setting', [ SettingController::class, "index_view" ])->name("setting");
     Route::view('/setting/new', "pages.setting.setting-new")->name('setting.new');

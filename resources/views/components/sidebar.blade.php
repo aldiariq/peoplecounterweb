@@ -19,9 +19,17 @@ $links = [
         "is_multi" => true,
     ],
     [
-        "href" => "pengaturangaris",
+        "href" => [
+            [
+                "section_text" => "Pengaturan Garis",
+                "section_list" => [
+                    ["href" => "pengaturangaris", "text" => "Data Garis Pendeteksi"],
+                    ["href" => "pengaturangaris.new", "text" => "Tambah Garis Pendeteksi"]
+                ]
+            ]
+        ],
         "text" => "Pengaturan Garis",
-        "is_multi" => false,
+        "is_multi" => true,
     ],
     [
         "href" => [
@@ -93,9 +101,23 @@ $navigation_links = array_to_object($links);
             @endif
 
             @if ($link->text == "Pengaturan Garis")
-            <li class="{{ Request::routeIs($link->href) ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route($link->href) }}"><i class="fas fa-grip-lines-vertical"></i><span>Pengaturan Garis</span></a>
-            </li>
+                @foreach ($link->href as $section)
+                    @php
+                    $routes = collect($section->section_list)->map(function ($child) {
+                        return Request::routeIs($child->href);
+                    })->toArray();
+
+                    $is_active = in_array(true, $routes);
+                    @endphp
+                    <li class="dropdown {{ ($is_active) ? 'active' : '' }}">
+                        <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-grip-lines-vertical"></i> <span>{{ $section->section_text }}</span></a>
+                        <ul class="dropdown-menu">
+                            @foreach ($section->section_list as $child)
+                                <li class="{{ Request::routeIs($child->href) ? 'active' : '' }}"><a class="nav-link" href="{{ route($child->href) }}">{{ $child->text }}</a></li>
+                            @endforeach
+                        </ul>
+                    </li>
+                @endforeach
             @endif
 
             @if ($link->text == "Kelola User")

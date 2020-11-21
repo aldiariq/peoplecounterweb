@@ -17,12 +17,12 @@ class Main extends Component
     public $sortAsc = false;
     public $search = '';
 
-    protected $listeners = [ "deleteItem" => "delete_item" ];
+    protected $listeners = ["deleteItem" => "delete_item"];
 
     public function sortBy($field)
     {
         if ($this->sortField === $field) {
-            $this->sortAsc = ! $this->sortAsc;
+            $this->sortAsc = !$this->sortAsc;
         } else {
             $this->sortAsc = true;
         }
@@ -30,7 +30,7 @@ class Main extends Component
         $this->sortField = $field;
     }
 
-    public function get_pagination_data ()
+    public function get_pagination_data()
     {
         switch ($this->name) {
             case 'user':
@@ -52,43 +52,62 @@ class Main extends Component
                 ];
                 break;
 
-                case 'kamera':
-                    $kameras = $this->model::search($this->search)
-                        ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
-                        ->paginate($this->perPage);
-    
-                    return [
-                        "view" => 'livewire.table.kamera',
-                        "kameras" => $kameras,
-                        "data" => array_to_object([
-                            'href' => [
-                                'create_new' => route('kamera.new'),
-                                'create_new_text' => 'Tambah Kamera Baru',
-                                'export' => '#',
-                                'export_text' => 'Export'
-                            ]
-                        ])
-                    ];
-                    break;
+            case 'kamera':
+                $kameras = $this->model::search($this->search)
+                    ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+                    ->paginate($this->perPage);
 
-                    case 'setting':
-                        $settings = $this->model::search($this->search)
-                            ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
-                            ->paginate($this->perPage);
-        
-                        return [
-                            "view" => 'livewire.table.setting',
-                            "settings" => $settings,
-                            "data" => array_to_object([
-                                'href' => [
-                                    'create_new' => route('setting.new'),
-                                    'create_new_text' => 'Tambah Setting (DVR) Baru',
-                                    'export' => '#',
-                                    'export_text' => 'Export'
-                                ]
-                            ])
-                        ];
-                        break;
+                return [
+                    "view" => 'livewire.table.kamera',
+                    "kameras" => $kameras,
+                    "data" => array_to_object([
+                        'href' => [
+                            'create_new' => route('kamera.new'),
+                            'create_new_text' => 'Tambah Kamera Baru',
+                            'export' => '#',
+                            'export_text' => 'Export'
+                        ]
+                    ])
+                ];
+                break;
+
+            case 'setting':
+                $settings = $this->model::search($this->search)
+                    ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+                    ->paginate($this->perPage);
+
+                return [
+                    "view" => 'livewire.table.setting',
+                    "settings" => $settings,
+                    "data" => array_to_object([
+                        'href' => [
+                            'create_new' => route('setting.new'),
+                            'create_new_text' => 'Tambah Setting (DVR) Baru',
+                            'export' => '#',
+                            'export_text' => 'Export'
+                        ]
+                    ])
+                ];
+                break;
+
+            case 'pengaturangaris':
+                $pengaturangaris = $this->model::search($this->search)
+                    ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+                    ->paginate($this->perPage);
+
+                return [
+                    "view" => 'livewire.table.pengaturangaris',
+                    "pengaturangaris" => $pengaturangaris,
+                    "data" => array_to_object([
+                        'href' => [
+                            'create_new' => route('pengaturangaris.new'),
+                            'create_new_text' => 'Tambah Garis Deteksi Baru',
+                            'export' => '#',
+                            'export_text' => 'Export'
+                        ]
+                    ])
+                ];
+                break;
 
             default:
                 # code...
@@ -96,7 +115,7 @@ class Main extends Component
         }
     }
 
-    public function delete_item ($id)
+    public function delete_item($id)
     {
         $data = $this->model::find($id);
 
