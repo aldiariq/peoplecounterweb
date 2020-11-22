@@ -9,10 +9,18 @@
         </x-slot>
 
         <x-slot name="form">
+
             <div class="form-group col-span-6 sm:col-span-5">
-                <x-jet-label for="id_kamera" value="{{ __('ID Kamera') }}" />
-                <small>ID Kamera</small>
-                <x-jet-input id="id_kamera" type="text" class="mt-1 block w-full form-control shadow-none" wire:model.defer="tbl_pengaturangaris.id_kamera" />
+                <x-jet-label for="id_kamera" value="{{ __('Nama Kamera') }}" />
+                <small>Nama Kamera</small>
+                <div wire:ignore>
+                    <select id="id_kamera" class="form-control" wire:model.defer="tbl_pengaturangaris.id_kamera">
+                        <option>Pilih Kamera</option>
+                        @foreach($datakamera as $data)
+                    <option value="{{$data->id}}">{{$data->nama_kamera}}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <x-jet-input-error for="tbl_pengaturangaris.id_kamera" class="mt-2" />
             </div>
 

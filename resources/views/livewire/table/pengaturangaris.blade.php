@@ -6,9 +6,9 @@
                     ID
                     @include('components.sort-icon', ['field' => 'id'])
                 </a></th>
-                <th><a wire:click.prevent="sortBy('id_kamera')" role="button" href="#">
-                    ID Kamera
-                    @include('components.sort-icon', ['field' => 'id_kamera'])
+                <th><a wire:click.prevent="sortBy('nama_kamera')" role="button" href="#">
+                    Nama Kamera
+                    @include('components.sort-icon', ['field' => 'nama_kamera'])
                 </a></th>
                 <th><a wire:click.prevent="sortBy('x1g1')" role="button" href="#">
                     X1G1
@@ -57,7 +57,7 @@
             @foreach ($pengaturangaris as $datapengaturangaris)
                 <tr x-data="window.__controller.dataTableController({{ $datapengaturangaris->id }})">
                     <td>{{ $datapengaturangaris->id }}</td>
-                    <td>{{ $datapengaturangaris->id_kamera }}</td>
+                    <td>{{ $datapengaturangaris->nama_kamera }}</td>
                     <td>{{ $datapengaturangaris->x1g1 }}</td>
                     <td>{{ $datapengaturangaris->y1g1 }}</td>
                     <td>{{ $datapengaturangaris->x2g1 }}</td>

@@ -45,6 +45,6 @@ class tbl_pengaturangaris extends Model
     public static function search($query)
     {
         return empty($query) ? static::query()
-            : static::where('no_kamera', 'like', '%'.$query.'%');
+            : static::where('tbl_kameras.nama_kamera', 'like', '%'.$query.'%');
     }
 }

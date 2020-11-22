@@ -2,10 +2,10 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\tbl_kamera;
 use App\Models\tbl_pengaturangaris;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
-
 
 class CreatePengaturangaris extends Component
 {
@@ -18,8 +18,9 @@ class CreatePengaturangaris extends Component
     protected function getRules()
     {
         $rules = ($this->action == "updatePengaturangaris") ? [
-            'tbl_pengaturangaris.id_kamera' => 'required'
+            'tbl_pengaturangaris.id_kamera' => 'required|unique:tbl_pengaturangaris'
         ] : [
+            'tbl_pengaturangaris.id_kamera' => 'required|unique:tbl_pengaturangaris',
             'tbl_pengaturangaris.x1g1' => 'required',
             'tbl_pengaturangaris.y1g1' => 'required',
             'tbl_pengaturangaris.x2g1' => 'required',
@@ -45,8 +46,12 @@ class CreatePengaturangaris extends Component
 
     public function createPengaturangaris ()
     {
+        $id = Auth::id();
+        
         $this->resetErrorBag();
         $this->validate();
+
+        $this->tbl_pengaturangaris['id_user'] = $id;
 
         tbl_pengaturangaris::create($this->tbl_pengaturangaris);
 
@@ -89,6 +94,8 @@ class CreatePengaturangaris extends Component
 
     public function render()
     {
-        return view('livewire.create-pengaturangaris');
+        return view('livewire.create-pengaturangaris', [
+            "datakamera" => tbl_kamera::all()
+        ]);
     }
 }

@@ -92,7 +92,9 @@ class Main extends Component
 
             case 'pengaturangaris':
                 $pengaturangaris = $this->model::search($this->search)
-                    ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
+                    ->join('tbl_kameras', 'tbl_kameras.id', '=', 'tbl_pengaturangaris.id_kamera')
+                    ->select('tbl_pengaturangaris.*', 'tbl_kameras.nama_kamera')
+                    ->orderBy('tbl_pengaturangaris.id', $this->sortAsc ? 'desc' : 'asc')
                     ->paginate($this->perPage);
 
                 return [
