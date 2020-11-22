@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UtamaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\KameraController;
 use App\Http\Controllers\PengaturangarisController;
@@ -17,9 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [ UtamaController::class, "index_view" ]);
 
 Route::group([ "middleware" => ['auth:sanctum', 'verified'] ], function() {
     Route::view('/dashboard', "dashboard")->name('dashboard');

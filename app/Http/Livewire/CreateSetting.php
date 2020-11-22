@@ -16,7 +16,7 @@ class CreateSetting extends Component
     protected function getRules()
     {
         $rules = ($this->action == "updateSetting") ? [
-            'tbl_settings.ip_dvr' => 'required|unique:tbl_settings'
+            'tbl_settings.ip_dvr' => 'required'
         ] : [
             'tbl_settings.user_dvr' => 'required',
             'tbl_settings.pass_dvr' => 'required',

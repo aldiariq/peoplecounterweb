@@ -16,9 +16,9 @@ class CreateKamera extends Component
     protected function getRules()
     {
         $rules = ($this->action == "updateKamera") ? [
-            'tbl_kameras.nama_kamera' => 'required|unique:tbl_kameras'
+            'tbl_kameras.nama_kamera' => 'required'
         ] : [
-            'tbl_kameras.channel_kamera' => 'required',
+            'tbl_kameras.channel_kamera' => 'required|unique:tbl_kameras',
         ];
 
         return array_merge([
