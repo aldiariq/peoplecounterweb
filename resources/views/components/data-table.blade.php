@@ -2,7 +2,7 @@
     <div class="p-8 pt-4 mt-2 bg-white" x-data="window.__controller.dataTableMainController()" x-init="setCallback();">
         <div class="flex pb-4 -ml-3">
             @if (Route::currentRouteName() == "pengunjung")
-            <a class="btn btn-danger"  onclick="return confirm('Ingin Mereset Data Pengunjung ?')" href="{{route('pengunjung.reset')}}" class="-ml- btn btn-primary shadow-none">
+            <a class="btn btn-danger"  onclick="resetPengunjung()" href="{{route('pengunjung.reset')}}" class="-ml- btn btn-primary shadow-none">
                 <span class="fas fa-sync"></span> {{ $data->href->create_new_text }}
             </a>
             @else
