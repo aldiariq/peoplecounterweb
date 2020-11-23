@@ -4,6 +4,7 @@ use App\Http\Controllers\UtamaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\KameraController;
 use App\Http\Controllers\PengaturangarisController;
+use App\Http\Controllers\PengunjungController;
 use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,4 +39,7 @@ Route::group([ "middleware" => ['auth:sanctum', 'verified'] ], function() {
     Route::get('/setting', [ SettingController::class, "index_view" ])->name("setting");
     Route::view('/setting/new', "pages.setting.setting-new")->name('setting.new');
     Route::view('/setting/edit/{settingId}', "pages.setting.setting-edit")->name('setting.edit');
+
+    Route::get('/pengunjung', [ PengunjungController::class, "index_view" ])->name("pengunjung");
+    Route::get('/pengunjung/reset', [ PengunjungController::class, "reset_pengguna" ])->name("pengunjung.reset");
 });

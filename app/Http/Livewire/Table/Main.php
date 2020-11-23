@@ -111,6 +111,27 @@ class Main extends Component
                 ];
                 break;
 
+                case 'pengunjung':
+                    $pengunjung = $this->model::search($this->search)
+                    ->join('tbl_kameras', 'tbl_kameras.id', '=', 'tbl_pengunjungs.id_kamera')
+                    ->select('tbl_pengunjungs.*', 'tbl_kameras.nama_kamera')
+                    ->orderBy('tbl_pengunjungs.id', $this->sortAsc ? 'desc' : 'asc')
+                    ->paginate($this->perPage);
+    
+                    return [
+                        "view" => 'livewire.table.pengunjung',
+                        "pengunjung" => $pengunjung,
+                        "data" => array_to_object([
+                            'href' => [
+                                'create_new' => route('pengunjung.reset'),
+                                'create_new_text' => 'Reset Data Pengunjung',
+                                'export' => '#',
+                                'export_text' => 'Export'
+                            ]
+                        ])
+                    ];
+                    break;
+
             default:
                 # code...
                 break;

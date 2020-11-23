@@ -57,6 +57,19 @@ $links = [
         "text" => "Kelola Setting (DVR)",
         "is_multi" => true,
     ],
+    [
+        "href" => [
+            [
+                "section_text" => "Kelola Pengunjung",
+                "section_list" => [
+                    ["href" => "pengunjung", "text" => "Data Pengunjung"],
+                    // ["href" => "setting.new", "text" => "Tambah Setting (DVR)"]
+                ]
+            ]
+        ],
+        "text" => "Kelola Pengunjung",
+        "is_multi" => true,
+    ]
 ];
 $navigation_links = array_to_object($links);
 @endphp
@@ -151,6 +164,26 @@ $navigation_links = array_to_object($links);
                     @endphp
                     <li class="dropdown {{ ($is_active) ? 'active' : '' }}">
                         <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cog"></i> <span>{{ $section->section_text }}</span></a>
+                        <ul class="dropdown-menu">
+                            @foreach ($section->section_list as $child)
+                                <li class="{{ Request::routeIs($child->href) ? 'active' : '' }}"><a class="nav-link" href="{{ route($child->href) }}">{{ $child->text }}</a></li>
+                            @endforeach
+                        </ul>
+                    </li>
+                @endforeach
+            @endif
+
+            @if ($link->text == "Kelola Pengunjung")
+                @foreach ($link->href as $section)
+                    @php
+                    $routes = collect($section->section_list)->map(function ($child) {
+                        return Request::routeIs($child->href);
+                    })->toArray();
+
+                    $is_active = in_array(true, $routes);
+                    @endphp
+                    <li class="dropdown {{ ($is_active) ? 'active' : '' }}">
+                        <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-users"></i> <span>{{ $section->section_text }}</span></a>
                         <ul class="dropdown-menu">
                             @foreach ($section->section_list as $child)
                                 <li class="{{ Request::routeIs($child->href) ? 'active' : '' }}"><a class="nav-link" href="{{ route($child->href) }}">{{ $child->text }}</a></li>

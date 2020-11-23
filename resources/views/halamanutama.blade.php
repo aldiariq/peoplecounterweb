@@ -26,7 +26,6 @@
 		
 		<div class="display-table">
 			<div class="display-table-cell">
-				
 				<h1 class="title font-white"><b>Jumlah Pengunjung di dalam Masjid</b></h1>
 				<div class="desc font-white">
 				<a class="notify-btn" href="#"><h1 class="title font-white"><b>{{$jumlahpengunjung}} Orang</b></h1></a>
@@ -38,7 +37,7 @@
 	<script>
 		setTimeout(function(){
 			location.reload();
-		},3000);
+		},5000);
 	 </script>
 	
 </body>
