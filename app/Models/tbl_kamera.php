@@ -19,7 +19,8 @@ class tbl_kamera extends Model
         'channel_kamera',
         'created_at',
         'updated_at',
-        'id_user'
+        'id_user',
+        'status_reverse'
     ];
 
     /**

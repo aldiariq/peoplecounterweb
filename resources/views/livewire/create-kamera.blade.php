@@ -22,6 +22,19 @@
                 <x-jet-input id="channel_kamera" type="text" class="mt-1 block w-full form-control shadow-none" wire:model.defer="tbl_kameras.channel_kamera" />
                 <x-jet-input-error for="tbl_kameras.channel_kamera" class="mt-2" />
             </div>
+
+            <div class="form-group col-span-6 sm:col-span-5">
+                <x-jet-label for="status_reverse" value="{{ __('Status Reverse') }}" />
+                <small>Status Reverse</small>
+                <div wire:ignore>
+                    <select id="status_reverse" class="form-control" wire:model.defer="tbl_kameras.status_reverse">
+                        <option>Pilih Status</option>
+                        <option value="1">Ya</option>
+                        <option value="0">Tidak</option>
+                    </select>
+                </div>
+                <x-jet-input-error for="tbl_kameras.status_reverse" class="mt-2" />
+            </div>
         </x-slot>
 
         <x-slot name="actions">
