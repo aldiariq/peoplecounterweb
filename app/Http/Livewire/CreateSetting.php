@@ -45,6 +45,8 @@ class CreateSetting extends Component
 
             $this->emit('saved');
             $this->reset('tbl_settings');
+
+            return redirect('setting');
         }else {
             
         }

@@ -11,18 +11,18 @@
 	
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CPoppins:400,500" rel="stylesheet">
 	
-    <link href="{{ asset('/css/halamancounter/css/ionicons.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('/css/halamancounter/css/ionicons.css') }}" rel="stylesheet">
 	
-	<link rel="stylesheet" href="{{ asset('/css/halamancounter/css/jquery.classycountdown.css') }}" />
+	<link rel="stylesheet" href="{{ URL::asset('/css/halamancounter/css/jquery.classycountdown.css') }}" />
 		
-	<link href="{{ asset('/css/halamancounter/css/styles.css') }}" rel="stylesheet">
+	<link href="{{ URL::asset('/css/halamancounter/css/styles.css') }}" rel="stylesheet">
 	
-	<link href="{{ asset('/css/halamancounter/css/responsive.css') }}" rel="stylesheet">
+	<link href="{{ URL::asset('/css/halamancounter/css/responsive.css') }}" rel="stylesheet">
 	
 </head>
 <body>
 	
-	<div class="main-area center-text" style="background-image:url(/css/halamancounter/image/bgcounterpage.jpg);">
+<div class="main-area center-text" style="background-image:url({{ asset('/css/halamancounter/image/bgcounterpage.jpg') }});">
 		<div class="display-table">
 			<div class="display-table-cell">
 				<h1 class="title font-white"><b>Lantai 1</b></h1>
