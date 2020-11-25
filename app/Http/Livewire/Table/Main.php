@@ -76,18 +76,28 @@ class Main extends Component
                     ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
                     ->paginate($this->perPage);
 
-                return [
-                    "view" => 'livewire.table.setting',
-                    "settings" => $settings,
-                    "data" => array_to_object([
-                        'href' => [
-                            'create_new' => route('setting.new'),
-                            'create_new_text' => 'Tambah Setting (DVR) Baru',
-                            'export' => '#',
-                            'export_text' => 'Export'
-                        ]
-                    ])
-                ];
+                if($settings->count() > 0){
+                    return [
+                        "view" => 'livewire.table.setting',
+                        "settings" => $settings,
+                        "data" => array_to_object([
+                            'href' => NULL
+                        ])
+                    ];
+                }else {
+                    return [
+                        "view" => 'livewire.table.setting',
+                        "settings" => $settings,
+                        "data" => array_to_object([
+                            'href' => [
+                                'create_new' => route('setting.new'),
+                                'create_new_text' => 'Tambah Settingan Baru',
+                                'export' => '#',
+                                'export_text' => 'Export'
+                            ]
+                        ])
+                    ];
+                }
                 break;
 
             case 'pengaturangaris':

@@ -23,12 +23,19 @@
 <body>
 	
 	<div class="main-area center-text" style="background-image:url(/css/halamancounter/image/bgcounterpage.jpg);">
-		
 		<div class="display-table">
 			<div class="display-table-cell">
-				<h1 class="title font-white"><b>Jumlah Pengunjung di dalam Masjid</b></h1>
+				<h1 class="title font-white"><b>Lantai 1</b></h1>
+				<h3 class="title font-white"><b>Jumlah Jamaah</b></h3>
 				<div class="desc font-white">
-				<a class="notify-btn" href="#"><h1 class="title font-white"><b>{{$jumlahpengunjung}} Orang</b></h1></a>
+				<a class="notify-btn" href="#"><h1 class="title font-white"><b>{{$jumlahpengunjunglantai1}} / {{$jumlahmakslantai1}}  Orang</b></h1></a>
+                </div>
+			</div><!-- display-table -->
+			<div class="display-table-cell">
+				<h1 class="title font-white"><b>Lantai 2</b></h1>
+				<h3 class="title font-white"><b>Jumlah Jamaah</b></h3>
+				<div class="desc font-white">
+				<a class="notify-btn" href="#"><h1 class="title font-white"><b>{{$jumlahpengunjunglantai2}} / {{$jumlahmakslantai2}} Orang</b></h1></a>
                 </div>
 			</div><!-- display-table -->
 		</div><!-- display-table-cell -->

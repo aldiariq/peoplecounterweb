@@ -16,11 +16,10 @@ class tbl_setting extends Model
      */
     protected $fillable = [
         'ip_dvr',
-        'user_dvr',
-        'pass_dvr',
-        'id_user',
         'created_at',
-        'updated_at'
+        'updated_at',
+        'max_lantai1',
+        'max_lantai2',
     ];
 
     /**

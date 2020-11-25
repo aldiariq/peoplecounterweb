@@ -23,6 +23,7 @@ class CreateTblKamerasTable extends Migration
             $table->dateTime('updated_at');
             $table->bigInteger('id_user')->unsigned();
             $table->integer('status_reverse');
+            $table->integer('lantai');
         });
     }
 

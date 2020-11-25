@@ -16,35 +16,41 @@ class CreateSetting extends Component
     protected function getRules()
     {
         $rules = ($this->action == "updateSetting") ? [
-            'tbl_settings.ip_dvr' => 'required'
+            'tbl_settings.max_lantai1' => 'required',
+            'tbl_settings.max_lantai2' => 'required',
         ] : [
-            'tbl_settings.user_dvr' => 'required',
-            'tbl_settings.pass_dvr' => 'required',
+            'tbl_settings.max_lantai1' => 'required',
+            'tbl_settings.max_lantai2' => 'required',
         ];
 
         return array_merge([
-            'tbl_settings.ip_dvr' => 'required|unique:tbl_settings',
-            'tbl_settings.user_dvr' => 'required',
-            'tbl_settings.pass_dvr' => 'required'
+            'tbl_settings.max_lantai1' => 'required',
+            'tbl_settings.max_lantai2' => 'required',
         ], $rules);
     }
 
-    public function createSetting ()
+    public function createSetting()
     {
-        $id = Auth::id();
+        $jumlahsetting = tbl_setting::all()->count();
 
-        $this->resetErrorBag();
-        $this->validate();
+        if ($jumlahsetting < 1) {
+            $id = Auth::id();
 
-        $this->tbl_settings['id_user'] = $id;
+            $this->resetErrorBag();
+            $this->validate();
 
-        tbl_setting::create($this->tbl_settings);
+            $this->tbl_settings['id_user'] = $id;
 
-        $this->emit('saved');
-        $this->reset('tbl_settings');
+            tbl_setting::create($this->tbl_settings);
+
+            $this->emit('saved');
+            $this->reset('tbl_settings');
+        }else {
+            
+        }
     }
 
-    public function updateSetting ()
+    public function updateSetting()
     {
         $this->resetErrorBag();
         $this->validate();
@@ -56,15 +62,14 @@ class CreateSetting extends Component
         $this->emit('saved');
     }
 
-    public function mount ()
+    public function mount()
     {
         if (!!$this->settingId) {
             $setting = tbl_setting::find($this->settingId);
 
             $this->tbl_settings = [
-                "ip_dvr" => $setting->ip_dvr,
-                "user_dvr" => $setting->user_dvr,
-                "pass_dvr" => $setting->pass_dvr,
+                "max_lantai1" => $setting->max_lantai1,
+                "max_lantai2" => $setting->max_lantai2,
             ];
         }
 

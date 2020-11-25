@@ -18,7 +18,8 @@ class CreateTblPengunjungsTable extends Migration
             $table->integer('id_kamera');
             $table->dateTime('created_at');
             $table->dateTime('updated_at');
-            $table->integer('status'); 
+            $table->integer('status');
+            $table->integer('lantai');
         });
     }
 

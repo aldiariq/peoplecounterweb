@@ -26,6 +26,10 @@
                     Status Reverse
                     @include('components.sort-icon', ['field' => 'status_reverse'])
                 </a></th>
+                <th><a wire:click.prevent="sortBy('lantai')" role="button" href="#">
+                    Lantai
+                    @include('components.sort-icon', ['field' => 'lantai'])
+                </a></th>
                 <th>Action</th>
             </tr>
         </x-slot>
@@ -42,7 +46,7 @@
                     @else
                         <td>Tidak</td>
                     @endif
-                    {{-- <td>{{ $kamera->status_reverse }}</td> --}}
+                    <td>{{ $kamera->lantai }}</td>
                     <td class="whitespace-no-wrap row-action--icon">
                         <a role="button" href="/kamera/edit/{{ $kamera->id }}" class="mr-3"><i class="fa fa-16px fa-pen"></i></a>
                         <a role="button" x-on:click.prevent="deleteItem" href="#"><i class="fa fa-16px fa-trash text-red-500"></i></a>

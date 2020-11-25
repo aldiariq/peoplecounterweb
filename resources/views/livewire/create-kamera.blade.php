@@ -35,6 +35,18 @@
                 </div>
                 <x-jet-input-error for="tbl_kameras.status_reverse" class="mt-2" />
             </div>
+            <div class="form-group col-span-6 sm:col-span-5">
+                <x-jet-label for="status_reverse" value="{{ __('Lantai') }}" />
+                <small>Lantai</small>
+                <div wire:ignore>
+                    <select id="lantai" class="form-control" wire:model.defer="tbl_kameras.lantai">
+                        <option>Pilih Lantai</option>
+                        <option value="1">Lantai 1</option>
+                        <option value="2">Lantai 2</option>
+                    </select>
+                </div>
+                <x-jet-input-error for="tbl_kameras.lantai" class="mt-2" />
+            </div>
         </x-slot>
 
         <x-slot name="actions">

@@ -1,6 +1,7 @@
 <div class="bg-gray-100 text-gray-900 tracking-wider leading-normal">
     <div class="p-8 pt-4 mt-2 bg-white" x-data="window.__controller.dataTableMainController()" x-init="setCallback();">
         <div class="flex pb-4 -ml-3">
+            @if ($data->href != null)
             @if (Route::currentRouteName() == "pengunjung")
             <a class="btn btn-danger"  onclick="resetPengunjung()" href="{{route('pengunjung.reset')}}" class="-ml- btn btn-primary shadow-none">
                 <span class="fas fa-sync"></span> {{ $data->href->create_new_text }}
@@ -9,6 +10,7 @@
             <a href="{{ $data->href->create_new }}" class="-ml- btn btn-primary shadow-none">
                 <span class="fas fa-plus"></span> {{ $data->href->create_new_text }}
             </a>
+            @endif
             @endif
 
             {{-- <a href="{{ $data->href->export }}" class="ml-2 btn btn-success shadow-none">

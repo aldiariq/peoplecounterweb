@@ -15,12 +15,11 @@ class CreateTblSettingsTable extends Migration
     {
         Schema::create('tbl_settings', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('ip_dvr');
-            $table->string('user_dvr');
-            $table->string('pass_dvr');
             $table->bigInteger('id_user')->unsigned();
             $table->dateTime('created_at');
             $table->dateTime('updated_at');
+            $table->integer('max_lantai1');
+            $table->integer('max_lantai2');
         });
     }
 

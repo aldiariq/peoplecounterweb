@@ -18,13 +18,17 @@ class CreateKamera extends Component
         $rules = ($this->action == "updateKamera") ? [
             'tbl_kameras.nama_kamera' => 'required'
         ] : [
-            'tbl_kameras.channel_kamera' => 'required|unique:tbl_kameras',
+            'tbl_kameras.nama_kamera' => 'required|unique:tbl_kameras',
+            'tbl_kameras.channel_kamera' => 'required',
+            'tbl_kameras.status_reverse' => 'required',
+            'tbl_kameras.lantai' => 'required'
         ];
 
         return array_merge([
             'tbl_kameras.nama_kamera' => 'required|unique:tbl_kameras',
             'tbl_kameras.channel_kamera' => 'required',
-            'tbl_kameras.status_reverse' => 'required'
+            'tbl_kameras.status_reverse' => 'required',
+            'tbl_kameras.lantai' => 'required'
         ], $rules);
     }
 
@@ -63,7 +67,8 @@ class CreateKamera extends Component
             $this->tbl_kameras = [
                 "nama_kamera" => $kamera->nama_kamera,
                 "channel_kamera" => $kamera->channel_kamera,
-                "status_reverse" => $kamera->status_reverse
+                "status_reverse" => $kamera->status_reverse,
+                "lantai" => $kamera->lantai,
             ];
         }
 

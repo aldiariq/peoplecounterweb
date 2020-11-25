@@ -47,14 +47,14 @@ $links = [
     [
         "href" => [
             [
-                "section_text" => "Kelola Setting (DVR)",
+                "section_text" => "Kelola Setting",
                 "section_list" => [
-                    ["href" => "setting", "text" => "Data Setting (DVR)"],
-                    ["href" => "setting.new", "text" => "Tambah Setting (DVR)"]
+                    ["href" => "setting", "text" => "Data Setting"],
+                    ["href" => "setting.new", "text" => "Tambah Setting"]
                 ]
             ]
         ],
-        "text" => "Kelola Setting (DVR)",
+        "text" => "Kelola Setting",
         "is_multi" => true,
     ],
     [
@@ -153,7 +153,7 @@ $navigation_links = array_to_object($links);
                 @endforeach
             @endif
 
-            @if ($link->text == "Kelola Setting (DVR)")
+            @if ($link->text == "Kelola Setting")
                 @foreach ($link->href as $section)
                     @php
                     $routes = collect($section->section_list)->map(function ($child) {
