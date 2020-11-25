@@ -44,18 +44,11 @@ $links = [
         "text" => "Kelola User",
         "is_multi" => true,
     ],
+ 
     [
-        "href" => [
-            [
-                "section_text" => "Kelola Setting",
-                "section_list" => [
-                    ["href" => "setting", "text" => "Data Setting"],
-                    ["href" => "setting.new", "text" => "Tambah Setting"]
-                ]
-            ]
-        ],
+        "href" => "setting",
         "text" => "Kelola Setting",
-        "is_multi" => true,
+        "is_multi" => false,
     ],
     [
         "href" => [
@@ -73,7 +66,7 @@ $links = [
 ];
 $navigation_links = array_to_object($links);
 @endphp
-
+ 
 <div class="main-sidebar">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
@@ -92,14 +85,14 @@ $navigation_links = array_to_object($links);
                 <a class="nav-link" href="{{ route($link->href) }}"><i class="fas fa-fire"></i><span>Dashboard</span></a>
             </li>
             @endif
-
+ 
             @if ($link->text == "Kelola Kamera")
                 @foreach ($link->href as $section)
                     @php
                     $routes = collect($section->section_list)->map(function ($child) {
                         return Request::routeIs($child->href);
                     })->toArray();
-
+ 
                     $is_active = in_array(true, $routes);
                     @endphp
                     <li class="dropdown {{ ($is_active) ? 'active' : '' }}">
@@ -112,14 +105,14 @@ $navigation_links = array_to_object($links);
                     </li>
                 @endforeach
             @endif
-
+ 
             @if ($link->text == "Pengaturan Garis")
                 @foreach ($link->href as $section)
                     @php
                     $routes = collect($section->section_list)->map(function ($child) {
                         return Request::routeIs($child->href);
                     })->toArray();
-
+ 
                     $is_active = in_array(true, $routes);
                     @endphp
                     <li class="dropdown {{ ($is_active) ? 'active' : '' }}">
@@ -132,14 +125,14 @@ $navigation_links = array_to_object($links);
                     </li>
                 @endforeach
             @endif
-
+ 
             @if ($link->text == "Kelola User")
                 @foreach ($link->href as $section)
                     @php
                     $routes = collect($section->section_list)->map(function ($child) {
                         return Request::routeIs($child->href);
                     })->toArray();
-
+ 
                     $is_active = in_array(true, $routes);
                     @endphp
                     <li class="dropdown {{ ($is_active) ? 'active' : '' }}">
@@ -152,34 +145,20 @@ $navigation_links = array_to_object($links);
                     </li>
                 @endforeach
             @endif
-
+ 
             @if ($link->text == "Kelola Setting")
-                @foreach ($link->href as $section)
-                    @php
-                    $routes = collect($section->section_list)->map(function ($child) {
-                        return Request::routeIs($child->href);
-                    })->toArray();
-
-                    $is_active = in_array(true, $routes);
-                    @endphp
-                    <li class="dropdown {{ ($is_active) ? 'active' : '' }}">
-                        <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-cog"></i> <span>{{ $section->section_text }}</span></a>
-                        <ul class="dropdown-menu">
-                            @foreach ($section->section_list as $child)
-                                <li class="{{ Request::routeIs($child->href) ? 'active' : '' }}"><a class="nav-link" href="{{ route($child->href) }}">{{ $child->text }}</a></li>
-                            @endforeach
-                        </ul>
-                    </li>
-                @endforeach
+            <li class="{{ Request::routeIs($link->href) ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route($link->href) }}"><i class="fas fa-cog"></i><span>Kelola Setting</span></a>
+            </li>
             @endif
-
+ 
             @if ($link->text == "Kelola Pengunjung")
                 @foreach ($link->href as $section)
                     @php
                     $routes = collect($section->section_list)->map(function ($child) {
                         return Request::routeIs($child->href);
                     })->toArray();
-
+ 
                     $is_active = in_array(true, $routes);
                     @endphp
                     <li class="dropdown {{ ($is_active) ? 'active' : '' }}">
