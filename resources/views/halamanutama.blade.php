@@ -9,7 +9,7 @@
 	
 	<!-- Font -->
 	
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CPoppins:400,500" rel="stylesheet">
+	<link href="{{ URL::asset('/css/halamancounter/css/open-sans.css') }}" rel="stylesheet">
 	
     <link href="{{ URL::asset('/css/halamancounter/css/ionicons.css') }}" rel="stylesheet">
 	

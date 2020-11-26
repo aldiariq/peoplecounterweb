@@ -10,10 +10,11 @@
 
         <x-slot name="form">
 
+            @if (strpos(Route::currentRouteName(), "new"))
             <div class="form-group col-span-6 sm:col-span-5">
                 <x-jet-label for="id_kamera" value="{{ __('Nama Kamera') }}" />
                 <small>Nama Kamera</small>
-                <div wire:ignore>
+                <div>
                     <select id="id_kamera" class="form-control" wire:model.defer="tbl_pengaturangaris.id_kamera">
                         <option>Pilih Kamera</option>
                         @foreach($datakamera as $data)
@@ -23,6 +24,21 @@
                 </div>
                 <x-jet-input-error for="tbl_pengaturangaris.id_kamera" class="mt-2" />
             </div>
+            @else
+            <div class="form-group col-span-6 sm:col-span-5">
+                <x-jet-label for="id_kamera" value="{{ __('Nama Kamera') }}" />
+                <small>Nama Kamera</small>
+                <div>
+                    <select disabled id="id_kamera" class="form-control" wire:model.defer="tbl_pengaturangaris.id_kamera">
+                        <option>Pilih Kamera</option>
+                        @foreach($datakamera as $data)
+                    <option value="{{$data->id}}">{{$data->nama_kamera}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <x-jet-input-error for="tbl_pengaturangaris.id_kamera" class="mt-2" />
+            </div>
+            @endif
 
             <div class="form-group col-span-6 sm:col-span-5">
                 <x-jet-label for="x1g1" value="{{ __('X1G1') }}" />

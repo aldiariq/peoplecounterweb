@@ -18,7 +18,7 @@ class CreatePengaturangaris extends Component
     protected function getRules()
     {
         $rules = ($this->action == "updatePengaturangaris") ? [
-            'tbl_pengaturangaris.id_kamera' => 'required|unique:tbl_pengaturangaris'
+            'tbl_pengaturangaris.id_kamera' => 'required'
         ] : [
             'tbl_pengaturangaris.id_kamera' => 'required|unique:tbl_pengaturangaris',
             'tbl_pengaturangaris.x1g1' => 'required',
