@@ -6,6 +6,14 @@
             <a class="btn btn-danger"  onclick="resetPengunjung()" href="{{route('pengunjung.reset')}}" class="-ml- btn btn-primary shadow-none">
                 <span class="fas fa-sync"></span> {{ $data->href->create_new_text }}
             </a>
+            <div class="mr-3"></div>
+            <a class="btn btn-primary"  onclick="tambahPengunjung()" class="-ml- btn btn-primary shadow-none">
+                <span class="fas fa-plus"></span> Tambahkan Data Pengunjung
+            </a>
+            <div class="mr-3"></div>
+            <a class="btn btn-warning"  onclick="kurangPengunjung()" class="-ml- btn btn-primary shadow-none">
+                <span class="fas fa-minus"></span> Kurangkan Data Pengunjung
+            </a>
             @else
             <a href="{{ $data->href->create_new }}" class="-ml- btn btn-primary shadow-none">
                 <span class="fas fa-plus"></span> {{ $data->href->create_new_text }}

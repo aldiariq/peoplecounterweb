@@ -34,6 +34,15 @@ class UtamaController extends Controller
  
         $totallantai1 = $jumlahpengunjungmasuklantai1 - $jumlahpengunjungkeluarlantai1;
         $totallantai2 = $jumlahpengunjungmasuklantai2 - $jumlahpengunjungkeluarlantai2;
+
+        if($totallantai1 < 0){
+            redirect('pengunjung.reset');
+            $totallantai1 = 0;
+        }
+
+        if($totallantai2 < 0){
+            $totallantai2 = 0;
+        }
  
         return view('halamanutama', [
             "jumlahpengunjunglantai1" => $totallantai1,

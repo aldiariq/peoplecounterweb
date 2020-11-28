@@ -12,7 +12,8 @@
         @endisset
 
         <!-- Styles -->
-        <link href="{{ asset('css/nunito-sans.css') }}" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Nunito:wght@400;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+        {{-- <link href="{{ asset('css/nunito-sans.css') }}" rel="stylesheet"> --}}
         <link rel="stylesheet" href="{{ asset('vendor/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/tailwind.css') }}">
         <link rel="stylesheet" href="{{ asset('stisla/css/style.css') }}">
@@ -20,9 +21,13 @@
         <link rel="stylesheet" href="{{ asset('vendor/notyf/notyf.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-        <link rel="stylesheet" href="{{ asset('css/free-v4-shims.min.css') }}" media="all">
+        <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css" media="all">
+        <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css" media="all">
+        <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all">
+
+        {{-- <link rel="stylesheet" href="{{ asset('css/free-v4-shims.min.css') }}" media="all">
         <link rel="stylesheet" href="{{ asset('css/free-v4-font-face.min.css') }}" media="all">
-        <link rel="stylesheet" href="{{ asset('css/free.min.css') }}" media="all">
+        <link rel="stylesheet" href="{{ asset('css/free.min.css') }}" media="all"> --}}
 
         <livewire:styles />
 
@@ -95,6 +100,52 @@
                 }).then((result) => {
                     if (result.value) {
                         let url = "{{ route('pengunjung.reset') }}";
+                        document.location.href=url;
+                    }
+                })
+            }
+
+            function tambahPengunjung(){
+                Swal.fire({
+                    title: 'Form Tambah Jamaah',
+                    html: `<input type="number" min="1" max="2" id="lantaitambahmasjid" class="swal2-input" placeholder="Lantai Masjid">
+                    <input type="number" min="0" id="jumlahtambahpengunjung" class="swal2-input" placeholder="Jumlah Jamaah">`,
+                    confirmButtonText: 'Tambah',
+                    focusConfirm: false,
+                preConfirm: () => {
+                    const lantai = Swal.getPopup().querySelector('#lantaitambahmasjid').value
+                    const jumlahjamaah = Swal.getPopup().querySelector('#jumlahtambahpengunjung').value
+                    if (!lantai || !jumlahjamaah) {
+                        Swal.showValidationMessage(`Inputkan Lantai dan Jumlah Jamaah`)
+                    }
+                    return { lantai: lantai, jumlahjamaah: jumlahjamaah }
+                }
+                }).then((result) => {
+                    if (result.value) {
+                        let url = "http://127.0.0.1:8000/pengunjung/tambah/" + result.value.lantai + "/" + result.value.jumlahjamaah;
+                        document.location.href=url;
+                    }
+                })
+            }
+
+            function kurangPengunjung(){
+                Swal.fire({
+                    title: 'Form Kurang Jamaah',
+                    html: `<input type="number" min="1" max="2" id="lantaikurangmasjid" class="swal2-input" placeholder="Lantai Masjid">
+                    <input type="number" min="0" id="jumlahkurangpengunjung" class="swal2-input" placeholder="Jumlah Jamaah">`,
+                    confirmButtonText: 'Kurang',
+                    focusConfirm: false,
+                preConfirm: () => {
+                    const lantai = Swal.getPopup().querySelector('#lantaikurangmasjid').value
+                    const jumlahjamaah = Swal.getPopup().querySelector('#jumlahkurangpengunjung').value
+                    if (!lantai || !jumlahjamaah) {
+                        Swal.showValidationMessage(`Inputkan Lantai dan Jumlah Jamaah`)
+                    }
+                    return { lantai: lantai, jumlahjamaah: jumlahjamaah }
+                }
+                }).then((result) => {
+                    if (result.value) {
+                        let url = "http://127.0.0.1:8000/pengunjung/kurang/" + result.value.lantai + "/" + result.value.jumlahjamaah;
                         document.location.href=url;
                     }
                 })

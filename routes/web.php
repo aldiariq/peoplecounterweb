@@ -42,4 +42,6 @@ Route::group([ "middleware" => ['auth:sanctum', 'verified'] ], function() {
 
     Route::get('/pengunjung', [ PengunjungController::class, "index_view" ])->name("pengunjung");
     Route::get('/pengunjung/reset', [ PengunjungController::class, "reset_pengguna" ])->name("pengunjung.reset");
+    Route::get('/pengunjung/tambah/{lantai}/{jumlah}', [ PengunjungController::class, "tambah_pengguna" ])->name("pengunjung.tambah");
+    Route::get('/pengunjung/kurang/{lantai}/{jumlah}', [ PengunjungController::class, "kurang_pengguna" ])->name("pengunjung.kurang");
 });
