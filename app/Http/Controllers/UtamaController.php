@@ -10,19 +10,21 @@ class UtamaController extends Controller
 {
     public function index_view()
     {
-        $datapengunjungmasuklantai1 = tbl_pengunjung::where('status', 1)->where('lantai', 1)->get();
-        $jumlahpengunjungmasuklantai1 = $datapengunjungmasuklantai1->count();
- 
-        $datapengunjungmasuklantai2 = tbl_pengunjung::where('status', 1)->where('lantai', 2)->get();
-        $jumlahpengunjungmasuklantai2 = $datapengunjungmasuklantai2->count();
- 
-        $datapengunjungkeluarlantai1 = tbl_pengunjung::where('status', 0)->where('lantai', 1)->get();
-        $jumlahpengunjungkeluarlantai1 = $datapengunjungkeluarlantai1->count();
- 
-        $datapengunjungkeluarlantai2 = tbl_pengunjung::where('status', 0)->where('lantai', 2)->get();
-        $jumlahpengunjungkeluarlantai2 = $datapengunjungkeluarlantai2->count();
+        $datapengunjunglantai1 = tbl_pengunjung::where('lantai', 1)->get();
+        $datapengunjunglantai2 = tbl_pengunjung::where('lantai', 2)->get();
  
         $datasetting = tbl_setting::all();
+
+        $totallantai1 = 0;
+        $totallantai2 = 0;
+
+        foreach ($datapengunjunglantai1 as $dataplantai1) {
+            $totallantai1 = $dataplantai1->jumlah;
+        }
+
+        foreach ($datapengunjunglantai2 as $dataplantai2) {
+            $totallantai2 = $dataplantai2->jumlah;
+        }
  
         $jumlahmakslantai1 = ''; 
         $jumlahmakslantai2 = '';
@@ -31,12 +33,8 @@ class UtamaController extends Controller
             $jumlahmakslantai1 = $setting->max_lantai1; 
             $jumlahmakslantai2 = $setting->max_lantai2;
         }
- 
-        $totallantai1 = $jumlahpengunjungmasuklantai1 - $jumlahpengunjungkeluarlantai1;
-        $totallantai2 = $jumlahpengunjungmasuklantai2 - $jumlahpengunjungkeluarlantai2;
 
         if($totallantai1 < 0){
-            redirect('pengunjung.reset');
             $totallantai1 = 0;
         }
 
