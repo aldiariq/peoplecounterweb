@@ -30,6 +30,14 @@
                     Lantai
                     @include('components.sort-icon', ['field' => 'lantai'])
                 </a></th>
+                <th><a wire:click.prevent="sortBy('jumlah_maksimum')" role="button" href="#">
+                    Jumlah Maksimum
+                    @include('components.sort-icon', ['field' => 'jumlah_maksimum'])
+                </a></th>
+                <th><a wire:click.prevent="sortBy('presentasi')" role="button" href="#">
+                    Presentasi
+                    @include('components.sort-icon', ['field' => 'presentasi'])
+                </a></th>
                 <th>Action</th>
             </tr>
         </x-slot>
@@ -47,6 +55,8 @@
                         <td>Tidak</td>
                     @endif
                     <td>{{ $kamera->lantai }}</td>
+                    <td>{{ $kamera->jumlah_maksimum }}</td>
+                    <td>{{ $kamera->presentasi }}</td>
                     <td class="whitespace-no-wrap row-action--icon">
                         <a role="button" href="/kamera/edit/{{ $kamera->id }}" class="mr-3"><i class="fa fa-16px fa-pen"></i></a>
                         <a role="button" x-on:click.prevent="deleteItem" href="#"><i class="fa fa-16px fa-trash text-red-500"></i></a>

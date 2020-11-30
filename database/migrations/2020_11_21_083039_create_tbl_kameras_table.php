@@ -24,6 +24,8 @@ class CreateTblKamerasTable extends Migration
             $table->bigInteger('id_user')->unsigned();
             $table->integer('status_reverse');
             $table->integer('lantai');
+            $table->integer('jumlah_maksimum');
+            $table->integer('presentasi');
         });
     }
 

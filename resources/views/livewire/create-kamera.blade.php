@@ -47,6 +47,20 @@
                 </div>
                 <x-jet-input-error for="tbl_kameras.lantai" class="mt-2" />
             </div>
+
+            <div class="form-group col-span-6 sm:col-span-5">
+                <x-jet-label for="jumlah_maksimum" value="{{ __('Jumlah Maksimum') }}" />
+                <small>Jumlah Maksimum</small>
+                <x-jet-input id="jumlah_maksimum" type="number" class="mt-1 block w-full form-control shadow-none" wire:model.defer="tbl_kameras.jumlah_maksimum" />
+                <x-jet-input-error for="tbl_kameras.jumlah_maksimum" class="mt-2" />
+            </div>
+    
+            <div class="form-group col-span-6 sm:col-span-5">
+                <x-jet-label for="presentasi" value="{{ __('Presentasi') }}" />
+                <small>Presentasi</small>
+                <x-jet-input id="presentasi" type="number" class="mt-1 block w-full form-control shadow-none" wire:model.defer="tbl_kameras.presentasi" />
+                <x-jet-input-error for="tbl_kameras.presentasi" class="mt-2" />
+            </div>
         </x-slot>
 
         <x-slot name="actions">

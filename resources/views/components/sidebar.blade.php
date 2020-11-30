@@ -44,25 +44,29 @@ $links = [
         "text" => "Kelola User",
         "is_multi" => true,
     ],
- 
     [
         "href" => "setting",
         "text" => "Kelola Setting",
         "is_multi" => false,
     ],
     [
-        "href" => [
-            [
-                "section_text" => "Kelola Pengunjung",
-                "section_list" => [
-                    ["href" => "pengunjung", "text" => "Data Pengunjung"],
-                    // ["href" => "setting.new", "text" => "Tambah Setting (DVR)"]
-                ]
-            ]
-        ],
-        "text" => "Kelola Pengunjung",
-        "is_multi" => true,
-    ]
+        "href" => "settingpengunjung",
+        "text" => "Kelola Setting Pengunjung",
+        "is_multi" => false,
+    ],
+    // [
+    //     "href" => [
+    //         [
+    //             "section_text" => "Kelola Pengunjung",
+    //             "section_list" => [
+    //                 ["href" => "pengunjung", "text" => "Data Pengunjung"],
+    //                 // ["href" => "setting.new", "text" => "Tambah Setting (DVR)"]
+    //             ]
+    //         ]
+    //     ],
+    //     "text" => "Kelola Pengunjung",
+    //     "is_multi" => true,
+    // ]
 ];
 $navigation_links = array_to_object($links);
 @endphp
@@ -151,8 +155,14 @@ $navigation_links = array_to_object($links);
                 <a class="nav-link" href="{{ route($link->href) }}"><i class="fas fa-cog"></i><span>Kelola Setting</span></a>
             </li>
             @endif
+
+            @if ($link->text == "Kelola Setting Pengunjung")
+            <li class="{{ Request::routeIs($link->href) ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route($link->href) }}"><i class="fas fa-users"></i><span>Kelola Setting Pengunjung</span></a>
+            </li>
+            @endif
  
-            @if ($link->text == "Kelola Pengunjung")
+            {{-- @if ($link->text == "Kelola Pengunjung")
                 @foreach ($link->href as $section)
                     @php
                     $routes = collect($section->section_list)->map(function ($child) {
@@ -170,7 +180,7 @@ $navigation_links = array_to_object($links);
                         </ul>
                     </li>
                 @endforeach
-            @endif
+            @endif --}}
         </ul>
         @endforeach
     </aside>

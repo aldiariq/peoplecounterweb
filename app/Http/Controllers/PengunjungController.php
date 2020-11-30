@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\tbl_pengunjung;
-use App\Models\tbl_setting;
-use Illuminate\Http\Request;
 
 class PengunjungController extends Controller
 {

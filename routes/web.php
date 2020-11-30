@@ -4,8 +4,9 @@ use App\Http\Controllers\UtamaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\KameraController;
 use App\Http\Controllers\PengaturangarisController;
-use App\Http\Controllers\PengunjungController;
+// use App\Http\Controllers\PengunjungController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\SettingpengunjungController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,8 +41,13 @@ Route::group([ "middleware" => ['auth:sanctum', 'verified'] ], function() {
     Route::view('/setting/new', "pages.setting.setting-new")->name('setting.new');
     Route::view('/setting/edit/{settingId}', "pages.setting.setting-edit")->name('setting.edit');
 
-    Route::get('/pengunjung', [ PengunjungController::class, "index_view" ])->name("pengunjung");
-    Route::get('/pengunjung/reset', [ PengunjungController::class, "reset_pengguna" ])->name("pengunjung.reset");
-    Route::get('/pengunjung/tambah/{lantai}/{jumlah}', [ PengunjungController::class, "tambah_pengguna" ])->name("pengunjung.tambah");
-    Route::get('/pengunjung/kurang/{lantai}/{jumlah}', [ PengunjungController::class, "kurang_pengguna" ])->name("pengunjung.kurang");
+    // Route::get('/pengunjung', [ PengunjungController::class, "index_view" ])->name("pengunjung");
+    // Route::get('/pengunjung/reset', [ PengunjungController::class, "reset_pengguna" ])->name("pengunjung.reset");
+    // Route::get('/pengunjung/tambah/{lantai}/{jumlah}', [ PengunjungController::class, "tambah_pengguna" ])->name("pengunjung.tambah");
+    // Route::get('/pengunjung/kurang/{lantai}/{jumlah}', [ PengunjungController::class, "kurang_pengguna" ])->name("pengunjung.kurang");
+
+    Route::get('/settingpengunjung', [ SettingpengunjungController::class, "index_view" ])->name("settingpengunjung");
+    Route::view('/settingpengunjung/new', "pages.settingpengunjung.settingpengunjung-new")->name('settingpengunjung.new');
+    Route::view('/settingpengunjung/edit/{settingpengunjungId}', "pages.settingpengunjung.settingpengunjung-edit")->name('settingpengunjung.edit');
+    Route::get('/settingpengunjung/reset', [ SettingpengunjungController::class, "reset_pengguna" ])->name("settingpengunjung.reset");
 });

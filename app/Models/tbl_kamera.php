@@ -21,7 +21,9 @@ class tbl_kamera extends Model
         'updated_at',
         'id_user',
         'status_reverse',
-        'lantai'
+        'lantai',
+        'jumlah_maksimum',
+        'presentasi'
     ];
 
     /**

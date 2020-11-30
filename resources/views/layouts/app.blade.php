@@ -12,8 +12,8 @@
         @endisset
 
         <!-- Styles -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Nunito:wght@400;600;700&family=Open+Sans&display=swap" rel="stylesheet">
-        {{-- <link href="{{ asset('css/nunito-sans.css') }}" rel="stylesheet"> --}}
+        {{-- <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Nunito:wght@400;600;700&family=Open+Sans&display=swap" rel="stylesheet"> --}}
+        <link href="{{ asset('css/nunito-sans.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('vendor/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/tailwind.css') }}">
         <link rel="stylesheet" href="{{ asset('stisla/css/style.css') }}">
@@ -21,9 +21,9 @@
         <link rel="stylesheet" href="{{ asset('vendor/notyf/notyf.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-        <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css" media="all">
-        <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css" media="all">
-        <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all">
+        <link rel="stylesheet" href="{{ asset('fontawesome/css/all.css') }}" media="all">
+        {{-- <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css" media="all">
+        <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all"> --}}
 
         {{-- <link rel="stylesheet" href="{{ asset('css/free-v4-shims.min.css') }}" media="all">
         <link rel="stylesheet" href="{{ asset('css/free-v4-font-face.min.css') }}" media="all">
@@ -84,10 +84,10 @@
             {{ $script }}
         @endisset
 
-        <script>
+        {{-- <script>
             function resetPengunjung() {
-                event.preventDefault(); // prevent form submit
-                var form = event.target.form; // storing the form
+                event.preventDefault();
+                var form = event.target.form;
                 Swal.fire({
                     title: 'Are you sure?',
                     text: "You won't be able to revert this!",
@@ -99,7 +99,7 @@
                     confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
                     if (result.value) {
-                        let url = "{{ route('pengunjung.reset') }}";
+                        let url = "{{ route('settingpengunjung.reset') }}";
                         document.location.href=url;
                     }
                 })
@@ -150,6 +150,6 @@
                     }
                 })
             }
-        </script>
+        </script> --}}
     </body>
 </html>

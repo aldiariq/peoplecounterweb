@@ -76,7 +76,7 @@ class Main extends Component
                     ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
                     ->paginate($this->perPage);
 
-                if($settings->count() > 0){
+                if ($settings->count() > 0) {
                     return [
                         "view" => 'livewire.table.setting',
                         "settings" => $settings,
@@ -84,7 +84,7 @@ class Main extends Component
                             'href' => NULL
                         ])
                     ];
-                }else {
+                } else {
                     return [
                         "view" => 'livewire.table.setting',
                         "settings" => $settings,
@@ -121,26 +121,55 @@ class Main extends Component
                 ];
                 break;
 
-                case 'pengunjung':
-                    $pengunjung = $this->model::search($this->search)
-                    ->join('tbl_kameras', 'tbl_kameras.id', '=', 'tbl_pengunjungs.id_kamera')
-                    ->select('tbl_pengunjungs.*', 'tbl_kameras.nama_kamera')
-                    ->orderBy('tbl_pengunjungs.id', $this->sortAsc ? 'desc' : 'asc')
+                // case 'pengunjung':
+                //     $pengunjung = $this->model::search($this->search)
+                //     ->join('tbl_kameras', 'tbl_kameras.id', '=', 'tbl_pengunjungs.id_kamera')
+                //     ->select('tbl_pengunjungs.*', 'tbl_kameras.nama_kamera')
+                //     ->orderBy('tbl_pengunjungs.id', $this->sortAsc ? 'desc' : 'asc')
+                //     ->paginate($this->perPage);
+
+                //     return [
+                //         "view" => 'livewire.table.pengunjung',
+                //         "pengunjung" => $pengunjung,
+                //         "data" => array_to_object([
+                //             'href' => [
+                //                 'create_new' => route('pengunjung.reset'),
+                //                 'create_new_text' => 'Reset Data Pengunjung',
+                //                 'export' => '#',
+                //                 'export_text' => 'Export'
+                //             ]
+                //         ])
+                //     ];
+                //     break;
+
+            case 'settingpengunjung':
+                $settingpengunjung = $this->model::search($this->search)
+                    ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
                     ->paginate($this->perPage);
-    
+
+                if ($settingpengunjung->count() > 0) {
                     return [
-                        "view" => 'livewire.table.pengunjung',
-                        "pengunjung" => $pengunjung,
+                        "view" => 'livewire.table.settingpengunjung',
+                        "settingpengunjung" => $settingpengunjung,
+                        "data" => array_to_object([
+                            'href' => NULL
+                        ])
+                    ];
+                } else {
+                    return [
+                        "view" => 'livewire.table.settingpengunjung',
+                        "settingpengunjung" => $settingpengunjung,
                         "data" => array_to_object([
                             'href' => [
-                                'create_new' => route('pengunjung.reset'),
-                                'create_new_text' => 'Reset Data Pengunjung',
+                                'create_new' => route('settingpengunjung.new'),
+                                'create_new_text' => 'Tambah Data Pengunjung',
                                 'export' => '#',
                                 'export_text' => 'Export'
                             ]
                         ])
                     ];
-                    break;
+                }
+                break;
 
             default:
                 # code...

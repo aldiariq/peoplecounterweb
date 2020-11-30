@@ -18,7 +18,7 @@ class tbl_pengunjung extends Model
         'id_kamera',
         'created_at',
         'updated_at',
-        'status',
+        'jumlah',
         'lantai'
     ];
 
