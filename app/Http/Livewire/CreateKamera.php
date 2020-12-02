@@ -23,8 +23,15 @@ class CreateKamera extends Component
             'tbl_kameras.status_reverse' => 'required',
             'tbl_kameras.lantai' => 'required',
             'tbl_kameras.jumlah_maksimum' => 'required',
-            'tbl_kameras.presentasi' => 'required'
-
+            'tbl_kameras.presentasi' => 'required',
+            'tbl_kameras.x1' => 'required',
+            'tbl_kameras.y1' => 'required',
+            'tbl_kameras.x2' => 'required',
+            'tbl_kameras.y2' => 'required',
+            'tbl_kameras.x3' => 'required',
+            'tbl_kameras.y3' => 'required',
+            'tbl_kameras.x4' => 'required',
+            'tbl_kameras.y4' => 'required',
         ];
 
         return array_merge([
@@ -33,7 +40,15 @@ class CreateKamera extends Component
             'tbl_kameras.status_reverse' => 'required',
             'tbl_kameras.lantai' => 'required',
             'tbl_kameras.jumlah_maksimum' => 'required',
-            'tbl_kameras.presentasi' => 'required'
+            'tbl_kameras.presentasi' => 'required',
+            'tbl_kameras.x1' => 'required',
+            'tbl_kameras.y1' => 'required',
+            'tbl_kameras.x2' => 'required',
+            'tbl_kameras.y2' => 'required',
+            'tbl_kameras.x3' => 'required',
+            'tbl_kameras.y3' => 'required',
+            'tbl_kameras.x4' => 'required',
+            'tbl_kameras.y4' => 'required',
         ], $rules);
     }
 
@@ -75,7 +90,15 @@ class CreateKamera extends Component
                 "status_reverse" => $kamera->status_reverse,
                 "lantai" => $kamera->lantai,
                 "jumlah_maksimum" => $kamera->jumlah_maksimum,
-                "presentasi" => $kamera->presentasi
+                "presentasi" => $kamera->presentasi,
+                "x1" => $kamera->x1,
+                "y1" => $kamera->y1,
+                "x2" => $kamera->x2,
+                "y2" => $kamera->y2,
+                "x3" => $kamera->x3,
+                "y3" => $kamera->y3,
+                "x4" => $kamera->x4,
+                "y4" => $kamera->y4,
             ];
         }
 

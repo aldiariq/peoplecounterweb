@@ -23,7 +23,15 @@ class tbl_kamera extends Model
         'status_reverse',
         'lantai',
         'jumlah_maksimum',
-        'presentasi'
+        'presentasi',
+        'x1',
+        'y1',
+        'x2',
+        'y2',
+        'x3',
+        'y3',
+        'x4',
+        'y4'
     ];
 
     /**

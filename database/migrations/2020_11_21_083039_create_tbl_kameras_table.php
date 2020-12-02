@@ -26,6 +26,14 @@ class CreateTblKamerasTable extends Migration
             $table->integer('lantai');
             $table->integer('jumlah_maksimum');
             $table->integer('presentasi');
+            $table->integer('x1');
+            $table->integer('y1');
+            $table->integer('x2');
+            $table->integer('y2');
+            $table->integer('x3');
+            $table->integer('y3');
+            $table->integer('x4');
+            $table->integer('y4');
         });
     }
 
