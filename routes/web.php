@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [ UtamaController::class, "index_view" ]);
+Route::get('/getdatapengunjung', [ UtamaController::class, "getdataPengunjung" ]);
 
 Route::group([ "middleware" => ['auth:sanctum', 'verified'] ], function() {
     Route::view('/dashboard', "dashboard")->name('dashboard');

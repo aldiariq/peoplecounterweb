@@ -22,10 +22,10 @@
                     Tanggal Diupdate
                     @include('components.sort-icon', ['field' => 'updated_at'])
                 </a></th>
-                <th><a wire:click.prevent="sortBy('status_reverse')" role="button" href="#">
+                {{-- <th><a wire:click.prevent="sortBy('status_reverse')" role="button" href="#">
                     Status Reverse
                     @include('components.sort-icon', ['field' => 'status_reverse'])
-                </a></th>
+                </a></th> --}}
                 <th><a wire:click.prevent="sortBy('lantai')" role="button" href="#">
                     Lantai
                     @include('components.sort-icon', ['field' => 'lantai'])
@@ -81,11 +81,11 @@
                     <td>{{ $kamera->channel_kamera }}</td>
                     <td>{{ $kamera->created_at->format('d M Y H:i') }}</td>
                     <td>{{ $kamera->updated_at->format('d M Y H:i') }}</td>
-                    @if ($kamera->status_reverse == 1)
+                    {{-- @if ($kamera->status_reverse == 1)
                         <td>Ya</td>
                     @else
                         <td>Tidak</td>
-                    @endif
+                    @endif --}}
                     <td>{{ $kamera->lantai }}</td>
                     <td>{{ $kamera->jumlah_maksimum }}</td>
                     <td>{{ $kamera->presentasi }}</td>

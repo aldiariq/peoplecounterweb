@@ -20,7 +20,7 @@ class CreateKamera extends Component
         ] : [
             'tbl_kameras.nama_kamera' => 'required|unique:tbl_kameras',
             'tbl_kameras.channel_kamera' => 'required',
-            'tbl_kameras.status_reverse' => 'required',
+            // 'tbl_kameras.status_reverse' => 'required',
             'tbl_kameras.lantai' => 'required',
             'tbl_kameras.jumlah_maksimum' => 'required',
             'tbl_kameras.presentasi' => 'required',
@@ -37,7 +37,7 @@ class CreateKamera extends Component
         return array_merge([
             'tbl_kameras.nama_kamera' => 'required|unique:tbl_kameras',
             'tbl_kameras.channel_kamera' => 'required',
-            'tbl_kameras.status_reverse' => 'required',
+            // 'tbl_kameras.status_reverse' => 'required',
             'tbl_kameras.lantai' => 'required',
             'tbl_kameras.jumlah_maksimum' => 'required',
             'tbl_kameras.presentasi' => 'required',
@@ -87,7 +87,7 @@ class CreateKamera extends Component
             $this->tbl_kameras = [
                 "nama_kamera" => $kamera->nama_kamera,
                 "channel_kamera" => $kamera->channel_kamera,
-                "status_reverse" => $kamera->status_reverse,
+                // "status_reverse" => $kamera->status_reverse,
                 "lantai" => $kamera->lantai,
                 "jumlah_maksimum" => $kamera->jumlah_maksimum,
                 "presentasi" => $kamera->presentasi,

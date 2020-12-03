@@ -20,7 +20,7 @@ class tbl_kamera extends Model
         'created_at',
         'updated_at',
         'id_user',
-        'status_reverse',
+        // 'status_reverse',
         'lantai',
         'jumlah_maksimum',
         'presentasi',

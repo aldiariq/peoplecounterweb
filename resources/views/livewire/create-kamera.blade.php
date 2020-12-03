@@ -23,7 +23,7 @@
                 <x-jet-input-error for="tbl_kameras.channel_kamera" class="mt-2" />
             </div>
 
-            <div class="form-group col-span-6 sm:col-span-5">
+            {{-- <div class="form-group col-span-6 sm:col-span-5">
                 <x-jet-label for="status_reverse" value="{{ __('Status Reverse') }}" />
                 <small>Status Reverse</small>
                 <div wire:ignore>
@@ -34,7 +34,7 @@
                     </select>
                 </div>
                 <x-jet-input-error for="tbl_kameras.status_reverse" class="mt-2" />
-            </div>
+            </div> --}}
             <div class="form-group col-span-6 sm:col-span-5">
                 <x-jet-label for="status_reverse" value="{{ __('Lantai') }}" />
                 <small>Lantai</small>
